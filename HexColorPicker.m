@@ -352,20 +352,26 @@ static NSDictionary *htmlKeywordsToColors;
 	//	NSLog(@"synccolor: %@ (class: %@)", c, [c className]);
 	
 	NSColor *colorInCorrectColorSpace = [color colorUsingColorSpaceName:(shouldGenerateDevice ? NSDeviceRGBColorSpace : NSCalibratedRGBColorSpace)];
-	NSString *str = @"?"; BOOL rgb = NO;
+	NSString *rgbStr = @"?"; NSString *hexStr = @"?"; BOOL rgb = NO;
 	if (nil != colorInCorrectColorSpace) { 
 		color = colorInCorrectColorSpace; 
 		//		NSLog(@"color 2: %@ (class: %@)", c, [c className]);
-		str = [NSString stringWithFormat:@"#%02X%02X%02X",
+		hexStr = [NSString stringWithFormat:@"#%02X%02X%02X",
 			   (unsigned int)(255*[color redComponent]),
 			   (unsigned int)(255*[color greenComponent]),
 			   (unsigned int)(255*[color blueComponent])];
-		if (!uppercasesHex) str = [str lowercaseString];
+		if (!uppercasesHex) hexStr = [hexStr lowercaseString];
+		rgbStr = [NSString stringWithFormat:@"%d,%d,%d",
+				  (unsigned int)(255*[color redComponent]),
+				  (unsigned int)(255*[color greenComponent]),
+				  (unsigned int)(255*[color blueComponent])];
 		rgb = YES;
 	}
 	
 	[colorHex setEnabled:rgb];
-	[colorHex setStringValue:str];
+	[colorHex setStringValue:hexStr];
+	[colorRgb setEnabled:rgb];
+	[colorRgb setStringValue:rgbStr];
 }
 
 - (NSString *)hcp_syncFieldAndColorWithoutChangingString {

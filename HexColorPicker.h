@@ -45,6 +45,7 @@
 @interface HexColorPicker : NSColorPicker <NSColorPickingCustom> {
 	IBOutlet NSView *colorPickerView;
 	IBOutlet NSTextField *colorHex;
+	IBOutlet NSTextField *colorRgb;
 
 	IBOutlet NSButton *goUpgrade;
 	
