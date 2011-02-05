@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24046EF20A3A02E9006476CC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24046EF10A3A02E9006476CC /* SystemConfiguration.framework */; };
+		2430C21B0B97A1B000E4067F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2430C21A0B97A1B000E4067F /* Localizable.strings */; };
+		244F4CF009A77191003C85E5 /* HexColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 244F4CEF09A77191003C85E5 /* HexColorPicker.m */; };
+		244F4D1D09A77524003C85E5 /* HexPicker.nib in Resources */ = {isa = PBXBuildFile; fileRef = 244F4D1B09A77524003C85E5 /* HexPicker.nib */; };
+		247F77240BECC4E50067F0F4 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 247F77220BECC4E50067F0F4 /* icon.icns */; };
+		2494B56F1024FF7800EF0E90 /* cog.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2494B56E1024FF7800EF0E90 /* cog.tiff */; };
+		249EBFFA1034DEAB002F6B2F /* cog-tiger.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 249EBFF91034DEAB002F6B2F /* cog-tiger.tiff */; };
+		249F52C410EE6B2E00E62209 /* WSAsyncURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F52C310EE6B2E00E62209 /* WSAsyncURL.m */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		24046EF10A3A02E9006476CC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		2430C2160B97A1AA00E4067F /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		244F4CEE09A77191003C85E5 /* HexColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColorPicker.h; sourceTree = "<group>"; };
+		244F4CEF09A77191003C85E5 /* HexColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColorPicker.m; sourceTree = "<group>"; };
+		244F4D1C09A77524003C85E5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/HexPicker.nib; sourceTree = "<group>"; };
+		247F77220BECC4E50067F0F4 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		2494B56E1024FF7800EF0E90 /* cog.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = cog.tiff; sourceTree = "<group>"; };
+		249EBFF91034DEAB002F6B2F /* cog-tiger.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "cog-tiger.tiff"; sourceTree = "<group>"; };
+		249F52C210EE6B2E00E62209 /* WSAsyncURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSAsyncURL.h; sourceTree = "<group>"; };
+		249F52C310EE6B2E00E62209 /* WSAsyncURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSAsyncURL.m; sourceTree = "<group>"; };
+		32DBCF630370AF2F00C91783 /* hexcolorpicker_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hexcolorpicker_Prefix.pch; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* HexColorPicker-10-4.colorPicker */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HexColorPicker-10-4.colorPicker"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				24046EF20A3A02E9006476CC /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* hexcolorpicker */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = hexcolorpicker;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2494B56E1024FF7800EF0E90 /* cog.tiff */,
+				249EBFF91034DEAB002F6B2F /* cog-tiger.tiff */,
+				247F77220BECC4E50067F0F4 /* icon.icns */,
+				2430C21A0B97A1B000E4067F /* Localizable.strings */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				244F4D1B09A77524003C85E5 /* HexPicker.nib */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				244F4CEE09A77191003C85E5 /* HexColorPicker.h */,
+				244F4CEF09A77191003C85E5 /* HexColorPicker.m */,
+				249F52C210EE6B2E00E62209 /* WSAsyncURL.h */,
+				249F52C310EE6B2E00E62209 /* WSAsyncURL.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24046EF10A3A02E9006476CC /* SystemConfiguration.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* HexColorPicker-10-4.colorPicker */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* hexcolorpicker_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* hexcolorpicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "hexcolorpicker" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				247068A70B98E1A30084A4E7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hexcolorpicker;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = hexcolorpicker;
+			productReference = 8D5B49B6048680CD000E48DA /* HexColorPicker-10-4.colorPicker */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "hexcolorpicker" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* hexcolorpicker */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* hexcolorpicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				244F4D1D09A77524003C85E5 /* HexPicker.nib in Resources */,
+				2430C21B0B97A1B000E4067F /* Localizable.strings in Resources */,
+				247F77240BECC4E50067F0F4 /* icon.icns in Resources */,
+				2494B56F1024FF7800EF0E90 /* cog.tiff in Resources */,
+				249EBFFA1034DEAB002F6B2F /* cog-tiger.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		247068A70B98E1A30084A4E7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Developer/Tools/SetFile -a B \"$INSTALL_DIR/HexColorPicker.colorPicker\"\ntouch \"$INSTALL_DIR/HexColorPicker.colorPicker\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				244F4CF009A77191003C85E5 /* HexColorPicker.m in Sources */,
+				249F52C410EE6B2E00E62209 /* WSAsyncURL.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2430C21A0B97A1B000E4067F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2430C2160B97A1AA00E4067F /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		244F4D1B09A77524003C85E5 /* HexPicker.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				244F4D1C09A77524003C85E5 /* English */,
+			);
+			name = HexPicker.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913C08733D840010E9CD /* Release 10.4 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = hexcolorpicker_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/ColorPickers";
+				PRODUCT_NAME = "HexColorPicker-10-4";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = colorPicker;
+			};
+			name = "Release 10.4";
+		};
+		1DEB914008733D840010E9CD /* Release 10.4 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = HCP_BUILD_TIGER;
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_STRIP_NIBS = NO;
+				"New Setting" = "";
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = "Release 10.4";
+		};
+		24206CF6101B25450066E2C4 /* Release 10.5 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				GCC_ENABLE_OBJC_GC = YES;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IBC_STRIP_NIBS = NO;
+				"New Setting" = "";
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = "Release 10.5";
+		};
+		24206CF7101B25450066E2C4 /* Release 10.5 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = hexcolorpicker_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/ColorPickers";
+				PRODUCT_NAME = HexColorPicker;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = colorPicker;
+			};
+			name = "Release 10.5";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "hexcolorpicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913C08733D840010E9CD /* Release 10.4 */,
+				24206CF7101B25450066E2C4 /* Release 10.5 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release 10.4";
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "hexcolorpicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB914008733D840010E9CD /* Release 10.4 */,
+				24206CF6101B25450066E2C4 /* Release 10.5 */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release 10.4";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

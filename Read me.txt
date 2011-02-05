@@ -1,0 +1,27 @@
+Hex Color Picker 1.6 source readme
+http://wafflesoftware.net/hexpicker/
+
+Information
+===========
+
+Hex Color Picker is a "color picker", a plugin-like bundle for the
+Mac OS X standard color panel. For more information, see this:
+
+<http://developer.apple.com/documentation/Cocoa/Conceptual/DrawColor/index.html>
+
+The Xcode project contains one build configuration for 10.4 (Tiger) and one for 10.5 and higher (Leopard and Snow Leopard). 10.4 builds PowerPC+Intel Universal. 10.5+ builds 4-way Universal (32-bit + 64-bit) and supports running under GC and manual memory management. 
+
+No build configuration will install into ~/Library/ColorPickers on build.
+
+
+A note on localizations
+=======================
+
+To save space, no localizations are included in this source release.
+They are actually applied to the product of the build to support an
+uncluttered Xcode project. (There's no "localization source" - just
+peruse the localizations in the latest binary release.)
+
+--
+
+Copyright © 2010 waffle software

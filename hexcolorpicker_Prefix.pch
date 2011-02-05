@@ -1,0 +1,23 @@
+//
+// Prefix header for all source files of the 'hexcolorpicker' target in the 'hexcolorpicker' project.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#ifndef NSInteger
+#if __LP64__
+typedef long NSInteger;
+typedef unsigned long NSUInteger;
+typedef double CGFloat;
+#else
+typedef int NSInteger;
+typedef unsigned int NSUInteger;
+typedef float CGFloat;
+#endif
+typedef NSInteger NSColorPanelMode;
+#endif
+
+// NSLocalizedString looks in the main bundle. Which is bad for a color panel.
+#define HCPLocalizedString(k,c)	NSLocalizedStringFromTableInBundle(k, nil, [NSBundle bundleForClass:[HexColorPicker class]], c)
