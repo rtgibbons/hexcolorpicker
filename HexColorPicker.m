@@ -352,26 +352,47 @@ static NSDictionary *htmlKeywordsToColors;
 	//	NSLog(@"synccolor: %@ (class: %@)", c, [c className]);
 	
 	NSColor *colorInCorrectColorSpace = [color colorUsingColorSpaceName:(shouldGenerateDevice ? NSDeviceRGBColorSpace : NSCalibratedRGBColorSpace)];
-	NSString *rgbStr = @"?"; NSString *hexStr = @"?"; BOOL rgb = NO;
+	NSString *hslStr = @"?"; NSString *rgbStr = @"?"; NSString *hexStr = @"?"; BOOL rgb = NO;
+	NSString *r = @"?"; NSString *g = @"?"; NSString *b = @"?";
+	NSString *h = @"?"; NSString *s = @"?"; NSString *l = @"?";
+	NSString *hex = @"?";
 	if (nil != colorInCorrectColorSpace) { 
 		color = colorInCorrectColorSpace; 
 		//		NSLog(@"color 2: %@ (class: %@)", c, [c className]);
-		hexStr = [NSString stringWithFormat:@"#%02X%02X%02X",
-			   (unsigned int)(255*[color redComponent]),
-			   (unsigned int)(255*[color greenComponent]),
-			   (unsigned int)(255*[color blueComponent])];
-		if (!uppercasesHex) hexStr = [hexStr lowercaseString];
-		rgbStr = [NSString stringWithFormat:@"%d,%d,%d",
+		
+		h = [NSString stringWithFormat:@"%1.2f", (unsigned int)(255*[color redComponent])];
+		s = [NSString stringWithFormat:@"%1.2f", (unsigned int)(255*[color greenComponent])];
+		l = [NSString stringWithFormat:@"%1.2f", (unsigned int)(255*[color blueComponent])];
+		
+		r = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color redComponent])];
+		g = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color greenComponent])];
+		b = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color blueComponent])];
+		
+		hex = [NSString stringWithFormat:@"%02X%02X%02X",
 				  (unsigned int)(255*[color redComponent]),
 				  (unsigned int)(255*[color greenComponent]),
 				  (unsigned int)(255*[color blueComponent])];
+		if (!uppercasesHex) hexStr = [hexStr lowercaseString];
+		
+		hexStr = [NSString stringWithFormat:@"#%@", hex];
+		rgbStr = [NSString stringWithFormat:@"%d,%d,%d", r, b, g];
+		hslStr = [NSString stringWithFormat:@"%d,%d,%d", h, s, l];
+		
 		rgb = YES;
 	}
 	
-	[colorHex setEnabled:rgb];
-	[colorHex setStringValue:hexStr];
-	[colorRgb setEnabled:rgb];
-	[colorRgb setStringValue:rgbStr];
+	[colorDisplay setEnabled:rgb];
+	[colorDisplay setStringValue:hexStr];
+	
+	[colorR setStringValue:r];
+	[colorG setStringValue:g];
+	[colorB setStringValue:b];
+	
+	[colorH setStringValue:h];
+	[colorS setStringValue:s];
+	[colorL setStringValue:l];
+	
+	[colorHex setStringValue:hex];
 }
 
 - (NSString *)hcp_syncFieldAndColorWithoutChangingString {
