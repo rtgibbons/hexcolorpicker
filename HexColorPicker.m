@@ -349,7 +349,7 @@ static NSDictionary *htmlKeywordsToColors;
 - (void)hcp_syncColorAndField {
 	NSColor *color = currColor;
 	
-	//	NSLog(@"synccolor: %@ (class: %@)", c, [c className]);
+	//NSLog(@"synccolor: %@ (class: %@)", color, [color className]);
 	
 	NSColor *colorInCorrectColorSpace = [color colorUsingColorSpaceName:(shouldGenerateDevice ? NSDeviceRGBColorSpace : NSCalibratedRGBColorSpace)];
 	NSString *hslStr = @"?"; NSString *rgbStr = @"?"; NSString *hexStr = @"?"; BOOL rgb = NO;
@@ -360,9 +360,19 @@ static NSDictionary *htmlKeywordsToColors;
 		color = colorInCorrectColorSpace; 
 		//		NSLog(@"color 2: %@ (class: %@)", c, [c className]);
 		
-		h = [NSString stringWithFormat:@"%1.2f", (unsigned int)(255*[color redComponent])];
-		s = [NSString stringWithFormat:@"%1.2f", (unsigned int)(255*[color greenComponent])];
-		l = [NSString stringWithFormat:@"%1.2f", (unsigned int)(255*[color blueComponent])];
+		CGFloat hi = 0.0; CGFloat li = 0.0; CGFloat si = 0.0;
+		//Gathered formula below from http://ariya.blogspot.com/2008/07/converting-between-hsl-and-hsv.html
+		hi = [color hueComponent];
+		li = (2 - [color saturationComponent]) * [color brightnessComponent];
+		si = [color saturationComponent] * [color brightnessComponent];
+		si = (li == 0) ? 0 : (si /= (li <= 1) ? (li) : 2 - (li));
+		li /= 2;
+
+		//NSLog(@"hsl float: %f %f %f", (360*hi), (100*si), (100*li));
+		//NSLog(@"hsl values: %d %d %d", (unsigned int)(hi*360+0.5), (unsigned int)(si*100+0.5), (unsigned int)(li*100+0.5));
+		h = [NSString stringWithFormat:@"%d", (unsigned int)(hi*360+0.5)];
+		s = [NSString stringWithFormat:@"%d", (unsigned int)(si*100+0.5)];
+		l = [NSString stringWithFormat:@"%d", (unsigned int)(li*100+0.5)];
 		
 		r = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color redComponent])];
 		g = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color greenComponent])];
@@ -376,7 +386,7 @@ static NSDictionary *htmlKeywordsToColors;
 		
 		hexStr = [NSString stringWithFormat:@"#%@", hex];
 		rgbStr = [NSString stringWithFormat:@"%d,%d,%d", r, b, g];
-		hslStr = [NSString stringWithFormat:@"%d,%d,%d", h, s, l];
+		hslStr = [NSString stringWithFormat:@"%d°,%d%,%d%", h, s, l];
 		
 		rgb = YES;
 	}
