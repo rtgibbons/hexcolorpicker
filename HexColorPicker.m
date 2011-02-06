@@ -119,6 +119,7 @@
 - (void)hcp_syncFieldAndColor;
 - (NSString *)hcp_syncFieldAndColorWithoutChangingString;
 
+- (void)hcp_updateColorStyleMenu;
 - (void)hcp_readPrefs;
 - (BOOL)hcp_boolPrefWithKey:(NSString *)pkey defaultValue:(BOOL)def;
 - (void)hcp_setBoolPref:(BOOL)pref forKey:(NSString *)pkey;
@@ -542,8 +543,26 @@ static NSDictionary *htmlKeywordsToColors;
 	uppercasesHex = [self hcp_boolPrefWithKey:HexColorPickerPrefUppercaseHexKey defaultValue:HexColorPickerPrefUppercaseHexVal];
 	shouldEnableShorthand = [self hcp_boolPrefWithKey:HexColorPickerPrefEnableShorthandKey defaultValue:HexColorPickerPrefEnableShorthandVal];
 	shouldGenerateDevice = [self hcp_boolPrefWithKey:HexColorPickerPrefGenerateDeviceKey defaultValue:HexColorPickerPrefGenerateDeviceVal];
+	optionColorStyle = [self hcp_stringPrefWithKey:HexColorPickerPrefOptionColorStyleKey];
+	if ([optionColorStyle isEqualToString:@""]) {
+		optionColorStyle = HexColorPickerPrefOptionColorStyleVal;
+	}
 	
+	[self hcp_updateColorStyleMenu];
 	[self hcp_checkForUpdate];
+}
+
+- (void)hcp_updateColorStyleMenu {
+	[colorStyleHex setState:NSOffState];
+	[colorStyleRGB setState:NSOffState];
+	[colorStyleHSL setState:NSOffState];
+	if ([optionColorStyle isEqualToString:@"Hex"]) {
+		[colorStyleHex setState:NSOnState];
+	} else if ([optionColorStyle isEqualToString:@"RGB"]) {
+		[colorStyleRGB setState:NSOnState];
+	} else if ([optionColorStyle isEqualToString:@"HSL"]) {
+		[colorStyleHSL setState:NSOnState];
+	}
 }
 
 - (void)hcp_askAboutUpdatesAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode  contextInfo:(void  *)contextInfo {
@@ -784,10 +803,7 @@ bail:
 		[self hcp_setStringPref:ocs forKey:HexColorPickerPrefOptionColorStyleKey];
 		optionColorStyle = ocs;
 		
-		[colorStyleHex setState:NSOffState];
-		[colorStyleRGB setState:NSOffState];
-		[colorStyleHSL setState:NSOffState];
-		[sender setState:NSOnState];
+		[self hcp_updateColorStyleMenu];
 		
 		[self hcp_syncColorAndField];
 	}
