@@ -65,6 +65,9 @@
 #define HexColorPickerPrefGenerateDeviceKey		@"HexColorPickerPrefGenerateDevice"
 #define HexColorPickerPrefGenerateDeviceVal		NO
 
+#define HexColorPickerPrefOptionColorStyleKey	@"HexColorPickerOptionColorStyle"
+#define HexColorPickerPrefOptionColorStyleVal	@"Hex"
+
 
 #define HexColorPickerUpdateServer			"wafflesoftware.net"
 // yes, that above is a char *, not an NSString
@@ -385,14 +388,21 @@ static NSDictionary *htmlKeywordsToColors;
 		if (!uppercasesHex) hexStr = [hexStr lowercaseString];
 		
 		hexStr = [NSString stringWithFormat:@"#%@", hex];
-		rgbStr = [NSString stringWithFormat:@"%d,%d,%d", r, b, g];
-		hslStr = [NSString stringWithFormat:@"%d°,%d%,%d%", h, s, l];
+		rgbStr = [NSString stringWithFormat:@"%@,%@,%@", r, b, g];
+		hslStr = [NSString stringWithFormat:@"%@°,%@%%,%@%%", h, s, l];
 		
 		rgb = YES;
 	}
 	
+	//NSLog(@"Style %@", optionColorStyle);
 	[colorDisplay setEnabled:rgb];
-	[colorDisplay setStringValue:hexStr];
+	if ( [optionColorStyle isEqualToString:@"RGB"]) {
+		[colorDisplay setStringValue:rgbStr];
+	} else if ([optionColorStyle isEqualToString:@"HSL"]) {
+		[colorDisplay setStringValue:hslStr];
+	} else {
+		[colorDisplay setStringValue:hexStr];
+	}
 	
 	[colorR setStringValue:r];
 	[colorG setStringValue:g];
@@ -763,6 +773,24 @@ bail:
 	
 	[pb setString:copying forType:NSStringPboardType];
 	[[[self colorPanel] color] writeToPasteboard:pb];
+}
+
+- (IBAction)updateColorStyle:(id)sender {
+	//NSLog(@"Current Title %@", [sender title]);
+	
+	NSString *ocs = [sender title];
+	
+	if (optionColorStyle != ocs) {
+		[self hcp_setStringPref:ocs forKey:HexColorPickerPrefOptionColorStyleKey];
+		optionColorStyle = ocs;
+		
+		[colorStyleHex setState:NSOffState];
+		[colorStyleRGB setState:NSOffState];
+		[colorStyleHSL setState:NSOffState];
+		[sender setState:NSOnState];
+		
+		[self hcp_syncColorAndField];
+	}
 }
 
 - (NSView *)provideNewView:(BOOL)initialRequest {

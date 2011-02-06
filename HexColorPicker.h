@@ -62,6 +62,11 @@
 	IBOutlet NSMenu *cogMenu;
 	IBOutlet NSPopUpButton *cogButton;
 	
+	IBOutlet NSMenu *colorStyleMenu;
+	IBOutlet NSMenuItem *colorStyleHex;
+	IBOutlet NSMenuItem *colorStyleRGB;
+	IBOutlet NSMenuItem *colorStyleHSL;
+	
 	IBOutlet NSPanel *colorPickerPrefs;
 	IBOutlet NSButton *useUpperHex;
 	IBOutlet NSButton *checkForUpdates;
@@ -84,12 +89,14 @@
 	BOOL uppercasesHex;
 	BOOL shouldEnableShorthand;
 	BOOL shouldGenerateDevice;
+	NSString *optionColorStyle;
 	
 	int32_t isCheckingForUpdatesRightNow; // really fat BOOL for atomicity (no BOOL CompareAndSwap)
 }
 
 - (IBAction)colorChanged:(id)sender;
 - (IBAction)copyToClipboard:(id)sender;
+- (IBAction)updateColorStyle:(id)sender;
 - (IBAction)visitWebsite:(id)sender;
 - (IBAction)goUpgrade:(id)sender;
 
