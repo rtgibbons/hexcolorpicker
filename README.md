@@ -1,10 +1,10 @@
 Installation
-------------
+============
 
 Install is easy, put it in ~/Library/ColorPickers . If you want to install it for all users on the computer throw it in /Library/ColorPickers
 
 About
------
+=====
 
 The original Hex Color Picker was developed by Jesper with [Waffle Software][wf_url] you can grab it over on the [Project Page][hcp_url].
 
@@ -16,10 +16,11 @@ The biggest use out of this plugin was the ability to grab the non-calibrated co
 This isn't the official repo for Hex Color Picker. I've contacted Jesper and he is still working on this and another project and didn't want to put this in Github, I wanted a way to store my changes and share it friends. I've contacted Jesper and have this on Github with his knowledge.
 
 Known Issues
-------------
+============
 
 Easy fix or not, these are things I need to go back in and fix
 
 - Minimum Size isn't set properly for plugin view
 - Typing in a color, shorthand or not, doesn't update field
+- Update server still using waffle software's (not sure how i'm going to handle versioning.
 - A Few Others
