@@ -20,7 +20,6 @@ Known Issues
 
 Easy fix or not, these are things I need to go back in and fix
 
-- Minimum Size isn't set properly for plugin view
-- Typing in a color, shorthand or not, doesn't update field
+- Typing in colors only accepts Hex and HTML Shorthand
 - Update server still using waffle software's (not sure how i'm going to handle versioning.
 - A Few Others
