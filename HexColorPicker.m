@@ -390,7 +390,7 @@ static NSDictionary *htmlKeywordsToColors;
 		
 		hexStr = [NSString stringWithFormat:@"#%@", hex];
 		rgbStr = [NSString stringWithFormat:@"%@,%@,%@", r, b, g];
-		hslStr = [NSString stringWithFormat:@"%@°,%@%%,%@%%", h, s, l];
+		hslStr = [NSString stringWithFormat:@"%@,%@%%,%@%%", h, s, l];
 		
 		rgb = YES;
 	}
@@ -774,6 +774,10 @@ bail:
 	[updateInfoURL release];
 	
 	[super dealloc];
+}
+
+- (NSSize)minContentSize {
+	return NSMakeSize(210.0, 180.0);
 }
 
 - (IBAction)copyToClipboard:(id)sender {

@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="18"/>
-			<integer value="310"/>
 			<integer value="7"/>
+			<integer value="310"/>
+			<integer value="18"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -351,7 +351,6 @@
 									<bool key="EncodedWithXMLCoder">YES</bool>
 								</object>
 							</object>
-							<int key="NSSelectedIndex">-1</int>
 							<bool key="NSPullDown">YES</bool>
 							<int key="NSPreferredEdge">1</int>
 							<bool key="NSUsesItemFromMenu">YES</bool>
@@ -412,7 +411,7 @@
 					<object class="NSTextField" id="600781933">
 						<reference key="NSNextResponder" ref="1023883887"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{8, 181}, {194, 37}}</string>
+						<string key="NSFrame">{{8, 183}, {194, 35}}</string>
 						<reference key="NSSuperview" ref="1023883887"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="510427692">
@@ -421,7 +420,7 @@
 							<string key="NSContents">#333333</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">Monaco</string>
-								<double key="NSSize">25</double>
+								<double key="NSSize">24</double>
 								<int key="NSfFlags">16</int>
 							</object>
 							<reference key="NSControlView" ref="600781933"/>
