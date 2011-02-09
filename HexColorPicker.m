@@ -118,6 +118,7 @@
 - (void)hcp_syncColorAndField;
 - (void)hcp_syncFieldAndColor;
 - (NSString *)hcp_syncFieldAndColorWithoutChangingString;
+- (void)hcp_updateColorStyles:(NSColor *)color;
 
 - (void)hcp_updateColorStyleMenu;
 - (void)hcp_readPrefs;
@@ -357,40 +358,16 @@ static NSDictionary *htmlKeywordsToColors;
 	
 	NSColor *colorInCorrectColorSpace = [color colorUsingColorSpaceName:(shouldGenerateDevice ? NSDeviceRGBColorSpace : NSCalibratedRGBColorSpace)];
 	NSString *hslStr = @"?"; NSString *rgbStr = @"?"; NSString *hexStr = @"?"; BOOL rgb = NO;
-	NSString *r = @"?"; NSString *g = @"?"; NSString *b = @"?";
-	NSString *h = @"?"; NSString *s = @"?"; NSString *l = @"?";
-	NSString *hex = @"?";
+	
 	if (nil != colorInCorrectColorSpace) { 
 		color = colorInCorrectColorSpace; 
 		//		NSLog(@"color 2: %@ (class: %@)", c, [c className]);
 		
-		CGFloat hi = 0.0; CGFloat li = 0.0; CGFloat si = 0.0;
-		//Gathered formula below from http://ariya.blogspot.com/2008/07/converting-between-hsl-and-hsv.html
-		hi = [color hueComponent];
-		li = (2 - [color saturationComponent]) * [color brightnessComponent];
-		si = [color saturationComponent] * [color brightnessComponent];
-		si = (li == 0) ? 0 : (si /= (li <= 1) ? (li) : 2 - (li));
-		li /= 2;
-
-		//NSLog(@"hsl float: %f %f %f", (360*hi), (100*si), (100*li));
-		//NSLog(@"hsl values: %d %d %d", (unsigned int)(hi*360+0.5), (unsigned int)(si*100+0.5), (unsigned int)(li*100+0.5));
-		h = [NSString stringWithFormat:@"%d", (unsigned int)(hi*360+0.5)];
-		s = [NSString stringWithFormat:@"%d", (unsigned int)(si*100+0.5)];
-		l = [NSString stringWithFormat:@"%d", (unsigned int)(li*100+0.5)];
+		[self hcp_updateColorStyles:color];
 		
-		r = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color redComponent])];
-		g = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color greenComponent])];
-		b = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color blueComponent])];
-		
-		hex = [NSString stringWithFormat:@"%02X%02X%02X",
-				  (unsigned int)(255*[color redComponent]),
-				  (unsigned int)(255*[color greenComponent]),
-				  (unsigned int)(255*[color blueComponent])];
-		if (!uppercasesHex) hexStr = [hexStr lowercaseString];
-		
-		hexStr = [NSString stringWithFormat:@"#%@", hex];
-		rgbStr = [NSString stringWithFormat:@"%@,%@,%@", r, b, g];
-		hslStr = [NSString stringWithFormat:@"%@,%@%%,%@%%", h, s, l];
+		hexStr = [NSString stringWithFormat:@"#%@", [colorHex stringValue]];
+		rgbStr = [NSString stringWithFormat:@"%@,%@,%@", [colorR stringValue], [colorB stringValue], [colorG stringValue]];
+		hslStr = [NSString stringWithFormat:@"%@,%@%%,%@%%", [colorH stringValue], [colorS stringValue], [colorL stringValue]];
 		
 		rgb = YES;
 	}
@@ -404,20 +381,10 @@ static NSDictionary *htmlKeywordsToColors;
 	} else {
 		[colorDisplay setStringValue:hexStr];
 	}
-	
-	[colorR setStringValue:r];
-	[colorG setStringValue:g];
-	[colorB setStringValue:b];
-	
-	[colorH setStringValue:h];
-	[colorS setStringValue:s];
-	[colorL setStringValue:l];
-	
-	[colorHex setStringValue:hex];
 }
 
 - (NSString *)hcp_syncFieldAndColorWithoutChangingString {
-	NSString *baseString = [colorHex stringValue];
+	NSString *baseString = [colorDisplay stringValue];
 	NSString *f = [baseString uppercaseString];
 	//	NSLog(@"string: %@", f);
 	NSString *keywordColor = nil;
@@ -473,6 +440,8 @@ static NSDictionary *htmlKeywordsToColors;
 	NSColor *c = (shouldGenerateDevice ? [NSColor colorWithDeviceRed:rc green:gc blue:bc alpha:1.0] : [NSColor colorWithCalibratedRed:rc green:gc blue:bc alpha:1.0]);
 	//	NSLog(@"color: %@", c);
 	
+	[self hcp_updateColorStyles:c];
+	
 	holdTheFormat = YES;
 	[[self colorPanel] setColor:c];	
 	holdTheFormat = NO;
@@ -491,7 +460,55 @@ static NSDictionary *htmlKeywordsToColors;
 	
 	NSString *s = [self hcp_syncFieldAndColorWithoutChangingString];
 	
-	[colorHex setStringValue:s];
+	if ([optionColorStyle isEqualToString:@"RGB"]) {
+		s = [NSString stringWithFormat:@"%@,%@,%@", [colorR stringValue], [colorG stringValue], [colorB stringValue]];
+	} else if ([optionColorStyle isEqualToString:@"HSL"]) {
+		s = [NSString stringWithFormat:@"%@,%@%%,%@%%", [colorH stringValue], [colorS stringValue], [colorL stringValue]];
+	}
+	
+	[colorDisplay setStringValue:s];
+	
+}
+
+- (void)hcp_updateColorStyles:(NSColor *)color {
+	NSString *r = @"?"; NSString *g = @"?"; NSString *b = @"?";
+	NSString *h = @"?"; NSString *s = @"?"; NSString *l = @"?";
+	NSString *hex = @"?";
+	
+	CGFloat hi = 0.0; CGFloat li = 0.0; CGFloat si = 0.0;
+	//Gathered formula below from http://ariya.blogspot.com/2008/07/converting-between-hsl-and-hsv.html
+	hi = [color hueComponent];
+	li = (2 - [color saturationComponent]) * [color brightnessComponent];
+	si = [color saturationComponent] * [color brightnessComponent];
+	si = (li == 0) ? 0 : (si /= (li <= 1) ? (li) : 2 - (li));
+	li /= 2;
+	
+	//NSLog(@"hsl float: %f %f %f", (360*hi), (100*si), (100*li));
+	//NSLog(@"hsl values: %d %d %d", (unsigned int)(hi*360+0.5), (unsigned int)(si*100+0.5), (unsigned int)(li*100+0.5));
+	h = [NSString stringWithFormat:@"%d", (unsigned int)(hi*360+0.5)];
+	s = [NSString stringWithFormat:@"%d", (unsigned int)(si*100+0.5)];
+	l = [NSString stringWithFormat:@"%d", (unsigned int)(li*100+0.5)];
+	
+	r = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color redComponent])];
+	g = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color greenComponent])];
+	b = [NSString stringWithFormat:@"%d", (unsigned int)(255*[color blueComponent])];
+	
+	hex = [NSString stringWithFormat:@"%02X%02X%02X",
+		   (unsigned int)(255*[color redComponent]),
+		   (unsigned int)(255*[color greenComponent]),
+		   (unsigned int)(255*[color blueComponent])];
+	if (!uppercasesHex) hex = [hex lowercaseString];
+	
+	
+	[colorR setStringValue:r];
+	[colorG setStringValue:g];
+	[colorB setStringValue:b];
+	
+	[colorH setStringValue:h];
+	[colorS setStringValue:s];
+	[colorL setStringValue:l];
+	
+	[colorHex setStringValue:hex];
 	
 }
 
